@@ -1,0 +1,3 @@
+FullName,Email,Password,Role,Department
+Placement Examination Administrator,admin1.exam@gmail.com,[SECURE_RANDOM_PASSWORD],admin,Placement & Examination Cell
+

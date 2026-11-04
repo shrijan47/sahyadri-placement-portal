@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 320" width="100%" height="100%">
+  <defs>
+    <filter id="shieldShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.25"/>
+    </filter>
+    <filter id="ribbonShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Shield Outer Glow / Shadow -->
+  <g filter="url(#shieldShadow)">
+    <!-- Outer Shield Border (Warm Copper/Gold) -->
+    <path d="M 60,35 
+             C 105,15 195,15 240,35 
+             C 246,38 248,50 248,65 
+             L 248,155 
+             C 248,210 185,255 150,275 
+             C 115,255 52,210 52,155 
+             L 52,65 
+             C 52,50 54,38 60,35 Z" 
+          fill="#A3542E" stroke="#8A401E" stroke-width="2"/>
+
+    <!-- Outer Shield Thin Gold Ring -->
+    <path d="M 64,39 
+             C 107,20 193,20 236,39 
+             C 241,41 243,52 243,65 
+             L 243,153 
+             C 243,206 182,249 150,268 
+             C 118,249 57,206 57,153 
+             L 57,65 
+             C 57,52 59,41 64,39 Z" 
+          fill="#FFFFFF" />
+
+    <!-- Main Shield Body (Deep Forest Green) -->
+    <path d="M 66,42 
+             C 108,23 192,23 234,42 
+             C 238,44 240,54 240,65 
+             L 240,152 
+             C 240,203 180,245 150,264 
+             C 120,245 60,203 60,152 
+             L 60,65 
+             C 60,54 62,44 66,42 Z" 
+          fill="#205A40" />
+
+    <!-- Inner Shield Fine White Line -->
+    <path d="M 73,49 
+             C 112,32 188,32 227,49 
+             C 230,51 232,59 232,68 
+             L 232,148 
+             C 232,194 177,233 150,250 
+             C 123,233 68,194 68,148 
+             L 68,68 
+             C 68,59 70,51 73,49 Z" 
+          fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-opacity="0.9" />
+
+    <!-- Stylized Monogram S -->
+    <g transform="translate(150, 130) scale(1.15)">
+      <text x="0" y="24" 
+            font-family="'Times New Roman', Times, 'Georgia', serif" 
+            font-size="94" 
+            font-weight="bold" 
+            fill="#FFFFFF" 
+            text-anchor="middle" 
+            letter-spacing="-1">S</text>
+    </g>
+  </g>
+
+  <!-- Banner / Ribbon for SAHYADRI -->
+  <g filter="url(#ribbonShadow)">
+    <!-- Left Ribbon Tail (Folded under) -->
+    <path d="M 20,248 L 48,225 L 48,252 L 20,275 L 36,261 Z" fill="#D35400"/>
+    <path d="M 48,245 L 60,245 L 48,260 Z" fill="#9C3B00"/>
+
+    <!-- Right Ribbon Tail (Folded under) -->
+    <path d="M 280,248 L 252,225 L 252,252 L 280,275 L 264,261 Z" fill="#D35400"/>
+    <path d="M 252,245 L 240,245 L 252,260 Z" fill="#9C3B00"/>
+
+    <!-- Main Front Ribbon Bar -->
+    <rect x="36" y="222" width="228" height="34" rx="2" fill="#E86E2A" />
+    <line x1="36" y1="223" x2="264" y2="223" stroke="#F39C12" stroke-width="1.5" opacity="0.6"/>
+
+    <!-- Ribbon Text SAHYADRI -->
+    <text x="150" y="246" 
+          font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" 
+          font-size="18.5" 
+          font-weight="900" 
+          fill="#FFFFFF" 
+          text-anchor="middle" 
+          letter-spacing="3.5">SAHYADRI</text>
+  </g>
+</svg>
+
