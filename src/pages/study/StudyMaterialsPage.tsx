@@ -45,21 +45,21 @@ export const StudyMaterialsPage: React.FC = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 animate-fadeIn">
       {/* Top Banner */}
       <div className="bg-gradient-to-r from-[#174330] via-[#205A40] to-[#2D7354] rounded-3xl p-6 sm:p-10 text-white shadow-xl relative overflow-hidden">
-        <div className="absolute right-0 top-0 bottom-0 w-1/3 opacity-10 pointer-events-none flex items-center justify-center">
+        <div className="absolute right-0 top-0 bottom-0 w-1/3 opacity-10 pointer-events-none flex items-center justify-center animate-hero-drift">
           <BookOpen className="w-96 h-96 -mr-20 text-white" />
         </div>
 
         <div className="relative z-10 space-y-3 max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-emerald-200 text-xs font-bold uppercase tracking-wider border border-white/15">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-emerald-200 text-xs font-bold uppercase tracking-wider border border-white/15 animate-hero-sub">
             <Sparkles className="w-3.5 h-3.5 text-amber-300" />
             <span>Placement Preparation Repository</span>
           </div>
 
-          <h1 className="text-2xl sm:text-4xl font-black tracking-tight leading-tight">
+          <h1 className="text-2xl sm:text-4xl font-black tracking-tight leading-tight animate-hero-title">
             Study Materials & Technical Cheatsheets
           </h1>
 
-          <p className="text-emerald-100/90 text-sm sm:text-base leading-relaxed">
+          <p className="text-emerald-100/90 text-sm sm:text-base leading-relaxed animate-hero-sub">
             Curated preparation guides, aptitude shortcuts, core computer science concept summaries,
             and 19 actual company placement question papers (TCS, Infosys, CTS, Wipro, Accenture)
             with step-by-step solutions.
@@ -124,13 +124,13 @@ export const StudyMaterialsPage: React.FC = () => {
 
       {/* Resources Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredResources.map((res) => {
+        {filteredResources.map((res, index) => {
           const isCompanyPaper = res.category === 'Company Assessment Papers';
 
           return (
             <div
               key={res.id}
-              className="bg-white rounded-3xl p-6 border border-slate-100 shadow-xs hover:shadow-md transition-all flex flex-col justify-between group space-y-4"
+              className={`bg-white rounded-3xl p-6 border border-slate-200/80 shadow-xs card-hover-lift transition-all flex flex-col justify-between group space-y-4 animate-fade-up stagger-${Math.min(8, (index % 6) + 1)}`}
             >
               <div className="space-y-3">
                 {/* Header Tag & Format */}

@@ -199,10 +199,10 @@ export const TestBoardPage: React.FC = () => {
       {/* Tests Grid */}
       {filteredExams.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredExams.map((exam) => (
+          {filteredExams.map((exam, index) => (
             <div
               key={exam.id}
-              className="bg-white rounded-3xl p-6 shadow-xs border border-slate-100 hover:border-emerald-300 hover:shadow-md transition-all flex flex-col justify-between space-y-4 group"
+              className={`bg-white rounded-3xl p-6 shadow-xs border border-slate-200/80 card-hover-lift transition-all flex flex-col justify-between space-y-4 group animate-fade-up stagger-${Math.min(8, (index % 6) + 1)}`}
             >
               <div className="space-y-3">
                 {/* Card Top Meta */}

@@ -10,24 +10,28 @@ export const BRAND_ASSETS = {
   campusBackground: '/assets/sahyadri-campus-bg.jpg',
   collegeLoginBg: '/assets/sahyadri-login-bg.webp',
   profileDoodleBanner: '/assets/profile-doodle-banner.png',
+  campusHero: '/assets/sahyadri-campus-hero.webp',
+  mockInterview: '/assets/sahyadri-mock-interview.webp',
+  placementDrive: '/assets/sahyadri-placement-drive.webp',
+  computerLab: '/assets/sahyadri-computer-lab.webp',
+  seminarHackathon: '/assets/sahyadri-seminar-hackathon.webp',
 } as const;
 
 export const BRAND_COLORS = {
   // Primary College Brand Identity
   sahyadri: {
     green: '#205A40',
-    greenDark: '#17422E',
-    greenLight: '#2E7D59',
-    gold: '#A3542E',
-    orange: '#E86E2A',
-    orangeDark: '#9C3B00',
+    greenDark: '#174B36',
+    greenLight: '#2D7354',
+    bg: '#F7F9F7',
+    gold: '#C59B27',
   },
   // Role Authentication Themes
   login: {
-    facultyGradient: 'linear-gradient(135deg, #3238A8 0%, #0EA5E9 100%)',
-    studentGradient: 'linear-gradient(135deg, #E11D48 0%, #8B5CF6 100%)',
-    facultyBtn: '#0056D2',
-    studentBtn: '#EF4444',
+    facultyGradient: 'linear-gradient(135deg, #174B36 0%, #205A40 100%)',
+    studentGradient: 'linear-gradient(135deg, #174B36 0%, #205A40 100%)',
+    facultyBtn: '#205A40',
+    studentBtn: '#205A40',
   },
   // Dashboard Performance KPIs
   kpi: {

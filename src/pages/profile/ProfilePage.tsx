@@ -85,10 +85,10 @@ export const ProfilePage: React.FC = () => {
       </div>
 
       {/* Main Profile Header Card */}
-      <div className="bg-white rounded-3xl overflow-hidden shadow-xs border border-slate-100">
+      <div className="bg-white rounded-3xl overflow-hidden shadow-xs border border-slate-200/80 card-hover-lift">
         {/* Banner with Subtle Doodle Overlay */}
         <div
-          className="h-36 sm:h-44 w-full bg-cover bg-center relative"
+          className="h-36 sm:h-44 w-full bg-cover bg-center relative transition-transform duration-700 hover:scale-102"
           style={{ backgroundImage: `url(${BRAND_ASSETS.profileDoodleBanner})` }}
         >
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/20 to-transparent" />

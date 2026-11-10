@@ -51,21 +51,21 @@ export const NewslettersPage: React.FC = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 animate-fadeIn">
       {/* Top Banner */}
       <div className="bg-gradient-to-r from-[#174330] via-[#205A40] to-[#2D7354] rounded-3xl p-6 sm:p-10 text-white shadow-xl relative overflow-hidden">
-        <div className="absolute right-0 top-0 bottom-0 w-1/3 opacity-10 pointer-events-none flex items-center justify-center">
+        <div className="absolute right-0 top-0 bottom-0 w-1/3 opacity-10 pointer-events-none flex items-center justify-center animate-hero-drift">
           <Newspaper className="w-96 h-96 -mr-20 text-white" />
         </div>
 
         <div className="relative z-10 space-y-3 max-w-3xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-emerald-200 text-xs font-bold uppercase tracking-wider border border-white/15">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-emerald-200 text-xs font-bold uppercase tracking-wider border border-white/15 animate-hero-sub">
             <Sparkles className="w-3.5 h-3.5 text-amber-300" />
             <span>Weekly Departmental Bulletin</span>
           </div>
 
-          <h1 className="text-2xl sm:text-4xl font-black tracking-tight leading-tight">
+          <h1 className="text-2xl sm:text-4xl font-black tracking-tight leading-tight animate-hero-title">
             Placement Cell Weekly Newsletters
           </h1>
 
-          <p className="text-emerald-100/90 text-sm sm:text-base leading-relaxed">
+          <p className="text-emerald-100/90 text-sm sm:text-base leading-relaxed animate-hero-sub">
             Stay informed with company recruitment spotlights, national qualifier aptitude shortcuts,
             candidate interview experiences, and weekly career preparation strategies from the
             Sahyadri Placement & Training Cell.
@@ -187,6 +187,31 @@ export const NewslettersPage: React.FC = () => {
                 {currentEdition.summary}
               </p>
             </div>
+
+            {/* Authentic Institutional Activity Photograph */}
+            {currentEdition.imageUrl && (
+              <div className="overflow-hidden rounded-3xl border border-slate-200/80 shadow-xs bg-slate-900 group">
+                <div className="relative aspect-[16/9] w-full overflow-hidden">
+                  <img
+                    src={currentEdition.imageUrl}
+                    alt={currentEdition.imageCaption || currentEdition.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    width={1024}
+                    height={600}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-transparent pointer-events-none" />
+                  <div className="absolute bottom-3 left-4 right-4 text-white">
+                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-600/90 text-[10px] font-bold uppercase tracking-wider mb-1 backdrop-blur-xs">
+                      Campus Placement Activity
+                    </span>
+                    <p className="text-xs font-medium text-slate-200 line-clamp-2">
+                      {currentEdition.imageCaption}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
 
             {/* Spotlight Company Card */}
             <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-xs space-y-4">
@@ -319,6 +344,24 @@ export const NewslettersPage: React.FC = () => {
             </div>
 
             <div className="p-6 overflow-y-auto space-y-6 text-sm text-slate-700 leading-relaxed">
+              {activeModalEdition.imageUrl && (
+                <div className="overflow-hidden rounded-2xl border border-slate-200 shadow-xs">
+                  <img
+                    src={activeModalEdition.imageUrl}
+                    alt={activeModalEdition.imageCaption || activeModalEdition.title}
+                    loading="lazy"
+                    className="w-full h-56 object-cover"
+                    width={800}
+                    height={400}
+                  />
+                  {activeModalEdition.imageCaption && (
+                    <p className="text-[11px] text-slate-500 p-2.5 bg-slate-50 border-t border-slate-100 italic">
+                      {activeModalEdition.imageCaption}
+                    </p>
+                  )}
+                </div>
+              )}
+
               <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100">
                 <h4 className="font-bold text-xs uppercase tracking-wider text-slate-400 mb-1">
                   Edition Summary

@@ -348,13 +348,9 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_actual_publishable_key`}
       )}
 
       {/* Main Authentication Card */}
-      <div className="shadow-2xl rounded-3xl overflow-hidden bg-white/95 backdrop-blur-sm border border-white/40 transition-all duration-300">
-        {/* Top Gradient Header */}
-        <div
-          className={`pt-7 pb-6 px-6 text-center transition-all duration-500 relative ${
-            isStudent ? 'bg-gradient-student' : 'bg-gradient-faculty'
-          }`}
-        >
+      <div className="shadow-2xl rounded-2xl overflow-hidden bg-white border border-slate-200/80 transition-all duration-300 animate-zoom-in">
+        {/* Top Institutional Header */}
+        <div className="pt-7 pb-6 px-6 text-center bg-gradient-to-br from-[#174B36] via-[#205A40] to-[#174B36] relative border-b border-emerald-900/40">
           {/* Sahyadri Emblem */}
           <SahyadriLogo size="md" useSvg={true} className="mb-2" />
 
@@ -369,20 +365,19 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_actual_publishable_key`}
           </p>
         </div>
 
-        {/* Main Form Body with Organic Asymmetric Curve */}
-        <div className="bg-white px-6 pt-5 pb-7 curve-scoop-tl -mt-4 relative z-10">
+        {/* Main Form Body */}
+        <div className="bg-white px-6 pt-5 pb-7 relative z-10">
           {!isForgotPassword ? (
             /* --- LOGIN MODE --- */
             <div>
-              {/* Demo Mode Quick Access Card */}
-              <div className="mb-4 p-3 bg-amber-50/90 border border-amber-200 rounded-2xl shadow-xs space-y-2">
+              {/* Institutional Sign-In Presets for Review / Evaluation */}
+              <div className="mb-4 p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="inline-flex items-center gap-1.5 text-xs font-black text-amber-900 uppercase tracking-wider">
-                    <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
-                    DEMO MODE ACTIVE
+                  <span className="text-[11px] font-semibold text-slate-600">
+                    Quick Sign-In Presets:
                   </span>
-                  <span className="text-[10px] text-amber-800 font-semibold bg-amber-200/60 px-2 py-0.5 rounded-full">
-                    Quick Preset
+                  <span className="text-[10px] text-[#205A40] font-bold bg-[#EBF3EF] px-2 py-0.5 rounded-md border border-[#205A40]/20">
+                    Autofill
                   </span>
                 </div>
                 <div className="flex flex-wrap gap-1.5">
@@ -394,9 +389,9 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_actual_publishable_key`}
                       setPassword('AdminDemo@123');
                       setErrors({});
                     }}
-                    className="px-2 py-1 text-[10px] font-bold bg-white text-slate-800 rounded-lg border border-slate-200 hover:border-[#205A40] hover:text-[#205A40] transition-colors"
+                    className="px-2.5 py-1 text-[11px] font-medium bg-white text-slate-700 rounded-lg border border-slate-200 hover:border-[#205A40] hover:text-[#205A40] transition-colors shadow-2xs"
                   >
-                    Admin (admin1.exam)
+                    Administrator
                   </button>
                   <button
                     type="button"
@@ -406,7 +401,7 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_actual_publishable_key`}
                       setPassword('StudentDemo@123');
                       setErrors({});
                     }}
-                    className="px-2 py-1 text-[10px] font-bold bg-white text-slate-800 rounded-lg border border-slate-200 hover:border-[#205A40] hover:text-[#205A40] transition-colors"
+                    className="px-2.5 py-1 text-[11px] font-medium bg-white text-slate-700 rounded-lg border border-slate-200 hover:border-[#205A40] hover:text-[#205A40] transition-colors shadow-2xs"
                   >
                     4SF24CI160 (Aarav)
                   </button>
@@ -418,7 +413,7 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_actual_publishable_key`}
                       setPassword('StudentDemo@123');
                       setErrors({});
                     }}
-                    className="px-2 py-1 text-[10px] font-bold bg-white text-slate-800 rounded-lg border border-slate-200 hover:border-[#205A40] hover:text-[#205A40] transition-colors"
+                    className="px-2.5 py-1 text-[11px] font-medium bg-white text-slate-700 rounded-lg border border-slate-200 hover:border-[#205A40] hover:text-[#205A40] transition-colors shadow-2xs"
                   >
                     4SF24CI161 (Ananya)
                   </button>
@@ -430,7 +425,7 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_actual_publishable_key`}
                       setPassword('StudentDemo@123');
                       setErrors({});
                     }}
-                    className="px-2 py-1 text-[10px] font-bold bg-white text-slate-800 rounded-lg border border-slate-200 hover:border-[#205A40] hover:text-[#205A40] transition-colors"
+                    className="px-2.5 py-1 text-[11px] font-medium bg-white text-slate-700 rounded-lg border border-slate-200 hover:border-[#205A40] hover:text-[#205A40] transition-colors shadow-2xs"
                   >
                     4SF24CI162 (Rohan)
                   </button>
@@ -442,7 +437,7 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_actual_publishable_key`}
                       setPassword('StudentDemo@123');
                       setErrors({});
                     }}
-                    className="px-2 py-1 text-[10px] font-bold bg-white text-slate-800 rounded-lg border border-slate-200 hover:border-[#205A40] hover:text-[#205A40] transition-colors"
+                    className="px-2.5 py-1 text-[11px] font-medium bg-white text-slate-700 rounded-lg border border-slate-200 hover:border-[#205A40] hover:text-[#205A40] transition-colors shadow-2xs"
                   >
                     4SF24CI163 (Sneha)
                   </button>
@@ -454,7 +449,7 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_actual_publishable_key`}
                       setPassword('StudentDemo@123');
                       setErrors({});
                     }}
-                    className="px-2 py-1 text-[10px] font-bold bg-white text-slate-800 rounded-lg border border-slate-200 hover:border-[#205A40] hover:text-[#205A40] transition-colors"
+                    className="px-2.5 py-1 text-[11px] font-medium bg-white text-slate-700 rounded-lg border border-slate-200 hover:border-[#205A40] hover:text-[#205A40] transition-colors shadow-2xs"
                   >
                     4SF24CI167 (Rahul)
                   </button>
@@ -464,7 +459,7 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_actual_publishable_key`}
               {/* Role Switcher Toggle */}
               <div className="flex items-center justify-between mb-4">
                 <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
-                  Portal Portal
+                  Account Type
                 </span>
                 <SegmentedToggle
                   value={role}
@@ -487,11 +482,11 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_actual_publishable_key`}
 
               {/* Student Support Alert Notice */}
               {isStudent && (
-                <div className="mb-4 p-2.5 bg-rose-50 border-l-4 border-rose-500 rounded text-[11px] text-rose-800 leading-snug">
+                <div className="mb-4 p-2.5 bg-[#EBF3EF] border-l-4 border-[#205A40] rounded text-[11px] text-[#174B36] leading-snug">
                   Use your University Seat Number (USN) to log in. For assistance, contact{' '}
                   <a
                     href={`mailto:${COLLEGE_INFO.supportEmail}`}
-                    className="font-bold underline hover:text-rose-950"
+                    className="font-bold underline hover:text-black"
                   >
                     {COLLEGE_INFO.supportEmail}
                   </a>
@@ -553,7 +548,7 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_actual_publishable_key`}
                     }}
                     leftIcon={
                       <Mail
-                        className={`w-4 h-4 ${isStudent ? 'text-rose-500' : 'text-blue-600'}`}
+                        className="w-4 h-4 text-[#205A40]"
                       />
                     }
                   />
@@ -578,7 +573,7 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_actual_publishable_key`}
                     }}
                     leftIcon={
                       <Lock
-                        className={`w-4 h-4 ${isStudent ? 'text-rose-500' : 'text-blue-600'}`}
+                        className="w-4 h-4 text-[#205A40]"
                       />
                     }
                     rightIcon={
@@ -603,7 +598,7 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_actual_publishable_key`}
                         type="checkbox"
                         checked={showPassword}
                         onChange={(e) => setShowPassword(e.target.checked)}
-                        className="rounded border-slate-300 text-blue-600 focus:ring-blue-500 w-3.5 h-3.5"
+                        className="rounded border-slate-300 text-[#205A40] focus:ring-[#205A40] w-3.5 h-3.5"
                       />
                       <span>Show Password</span>
                     </label>
@@ -615,7 +610,7 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_actual_publishable_key`}
                         setForgotEmail(identifier.includes('@') ? identifier : '');
                         setForgotMessage(null);
                       }}
-                      className="text-blue-600 hover:text-blue-800 font-medium hover:underline focus:outline-none"
+                      className="text-[#205A40] hover:text-[#174B36] font-medium hover:underline focus:outline-none"
                     >
                       Forgot Password?
                     </button>
@@ -627,7 +622,7 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_actual_publishable_key`}
                         type="checkbox"
                         checked={rememberMe}
                         onChange={(e) => setRememberMe(e.target.checked)}
-                        className="rounded border-slate-300 text-blue-600 focus:ring-blue-500 w-3.5 h-3.5"
+                        className="rounded border-slate-300 text-[#205A40] focus:ring-[#205A40] w-3.5 h-3.5"
                       />
                       <span>Remember Me</span>
                     </label>
@@ -638,13 +633,13 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_actual_publishable_key`}
                 <div className="pt-2">
                   <Button
                     type="submit"
-                    variant={isStudent ? 'primary-coral' : 'primary-blue'}
+                    variant="primary-green"
                     fullWidth={true}
                     size="md"
                     isLoading={isLoading}
                     disabled={lockoutRemainingSeconds > 0}
                   >
-                    LOGIN
+                    SIGN IN
                   </Button>
                 </div>
               </form>
@@ -713,13 +708,13 @@ VITE_SUPABASE_PUBLISHABLE_KEY=your_actual_publishable_key`}
                   value={forgotEmail}
                   disabled={forgotLoading}
                   onChange={(e) => setForgotEmail(e.target.value)}
-                  leftIcon={<Mail className="w-4 h-4 text-blue-600" />}
+                  leftIcon={<Mail className="w-4 h-4 text-[#205A40]" />}
                 />
 
                 <div className="pt-2">
                   <Button
                     type="submit"
-                    variant="primary-blue"
+                    variant="primary-green"
                     fullWidth={true}
                     size="md"
                     isLoading={forgotLoading}

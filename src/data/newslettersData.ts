@@ -14,6 +14,8 @@ export interface NewsletterEdition {
   summary: string;
   isPublished: boolean;
   isSampleDemo: boolean;
+  imageUrl?: string;
+  imageCaption?: string;
   spotlightCompany: {
     name: string;
     role: string;
@@ -44,6 +46,8 @@ export const INITIAL_NEWSLETTERS: NewsletterEdition[] = [
     summary: 'Focus edition on TCS NQT and Cognizant GenC aptitude patterns, mental arithmetic strategies, and system design basics.',
     isPublished: true,
     isSampleDemo: true,
+    imageUrl: '/assets/sahyadri-placement-drive.webp',
+    imageCaption: 'Sahyadri engineering candidates felicitated in the SCEM Boardroom following successful campus recruitment drives.',
     spotlightCompany: {
       name: 'Tata Consultancy Services (TCS)',
       role: 'Prime / Digital / Ninja Software Engineer',
@@ -94,6 +98,8 @@ export const INITIAL_NEWSLETTERS: NewsletterEdition[] = [
     summary: 'A deep dive into cryptarithmetic puzzles, state-transition memoization in dynamic programming, and effective resume formatting.',
     isPublished: true,
     isSampleDemo: true,
+    imageUrl: '/assets/sahyadri-computer-lab.webp',
+    imageCaption: 'SCEM Central Computing Center during an online proctored aptitude & technical coding assessment session.',
     spotlightCompany: {
       name: 'Infosys Limited',
       role: 'Specialist Programmer (SP) & Digital Specialist Engineer (DSE)',
@@ -137,6 +143,8 @@ export const INITIAL_NEWSLETTERS: NewsletterEdition[] = [
     summary: 'Essential concepts in Operating Systems, Banker\'s Algorithm for deadlock avoidance, and SQL window functions.',
     isPublished: true,
     isSampleDemo: true,
+    imageUrl: '/assets/sahyadri-mock-interview.webp',
+    imageCaption: 'Technical and HR Mock Interview session conducted by faculty and corporate mentors to refine candidate readiness.',
     spotlightCompany: {
       name: 'Cognizant (CTS)',
       role: 'GenC Next / GenC Elevate Software Engineer',
@@ -178,6 +186,8 @@ export const INITIAL_NEWSLETTERS: NewsletterEdition[] = [
     summary: 'Inaugural edition introducing the portal features, CBT examination engine rules, and semester-wise milestones.',
     isPublished: true,
     isSampleDemo: true,
+    imageUrl: '/assets/sahyadri-seminar-hackathon.webp',
+    imageCaption: 'Auditorium project evaluation and hackathon mentoring session with industry leads and student development teams.',
     spotlightCompany: {
       name: 'Accenture',
       role: 'Associate Software Engineer (ASE) & Advanced ASE',

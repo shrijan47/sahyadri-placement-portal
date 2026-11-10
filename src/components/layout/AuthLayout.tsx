@@ -6,9 +6,9 @@ import { COLLEGE_INFO, BRAND_ASSETS } from '../../constants/tokens';
 export const AuthLayout: React.FC = () => {
   return (
     <div className="min-h-screen w-full flex flex-col items-center justify-between p-4 sm:p-6 lg:p-8 bg-slate-950 text-white relative overflow-hidden select-none">
-      {/* Uploaded Sahyadri College Campus Background Image */}
+      {/* Uploaded Sahyadri College Campus Background Image with Subtle Cinematic Float */}
       <div
-        className="absolute inset-0 w-full h-full bg-cover bg-no-repeat pointer-events-none"
+        className="absolute inset-0 w-full h-full bg-cover bg-no-repeat pointer-events-none animate-hero-drift"
         style={{
           backgroundImage: `url(${BRAND_ASSETS.collegeLoginBg})`,
           backgroundPosition: 'center 40%',

@@ -9,7 +9,6 @@ import {
   RotateCcw,
   Send,
   X,
-  Sparkles,
   Check,
 } from 'lucide-react';
 import { getExamConfigById } from '../../data/examCatalog';
@@ -387,16 +386,8 @@ export const ExamInterfacePage: React.FC = () => {
               </div>
             </div>
 
-            {/* Preview Disclaimer Notice */}
-            <div className="p-2.5 bg-amber-50/80 rounded-xl border border-amber-200/80 flex items-center gap-2 text-[11px] text-amber-900">
-              <Sparkles className="w-3.5 h-3.5 text-amber-600 shrink-0" />
-              <span>
-                <strong>Preview Question Bank:</strong> Benchmark curriculum item for training & evaluation.
-              </span>
-            </div>
-
             {/* Question Text */}
-            <div className="text-sm sm:text-base font-semibold text-slate-900 leading-relaxed whitespace-pre-line">
+            <div className="text-base sm:text-lg font-semibold text-slate-900 leading-relaxed whitespace-pre-line">
               {currentQ.questionText}
             </div>
 
@@ -411,15 +402,15 @@ export const ExamInterfacePage: React.FC = () => {
                     key={optIndex}
                     type="button"
                     onClick={() => handleSelectOption(optIndex)}
-                    className={`w-full text-left p-4 sm:p-4.5 rounded-2xl border-2 transition-all flex items-center justify-between gap-3.5 group cursor-pointer ${
+                    className={`w-full text-left p-4 sm:p-4.5 rounded-xl border-2 transition-all flex items-center justify-between gap-3.5 group cursor-pointer ${
                       isSelected
-                        ? 'border-[#205A40] bg-emerald-50/90 text-slate-900 font-semibold shadow-sm ring-2 ring-[#205A40]/25'
+                        ? 'border-[#205A40] bg-[#EBF3EF] text-slate-900 font-semibold shadow-xs ring-2 ring-[#205A40]/25'
                         : 'border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50/80 text-slate-800'
                     }`}
                   >
                     <div className="flex items-start gap-3.5 flex-1 min-w-0">
                       <span
-                        className={`w-7 h-7 rounded-xl flex items-center justify-center text-xs font-black shrink-0 transition-colors ${
+                        className={`w-7 h-7 rounded-lg flex items-center justify-center text-xs font-black shrink-0 transition-colors ${
                           isSelected
                             ? 'bg-[#205A40] text-white shadow-xs'
                             : 'bg-slate-100 text-slate-600 border border-slate-200 group-hover:bg-slate-200/80'
@@ -587,7 +578,7 @@ export const ExamInterfacePage: React.FC = () => {
                 <span>Marked for Review</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="w-3.5 h-3.5 rounded bg-white border-2 border-blue-600 inline-block" />
+                <span className="w-3.5 h-3.5 rounded bg-white border-2 border-[#205A40] inline-block" />
                 <span>Current Question</span>
               </div>
             </div>

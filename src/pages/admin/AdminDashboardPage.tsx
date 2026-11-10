@@ -25,6 +25,7 @@ import type { ExamConfig, ExamQuestion, QuestionDifficulty, AssessmentStatus } f
 import type { JobOpportunity } from '../../data/jobsData';
 import type { NewsletterEdition } from '../../data/newslettersData';
 import type { StudyResource } from '../../data/studyMaterialsData';
+import { CountUp } from '../../components/common/CountUp';
 
 type AdminTab = 'overview' | 'students' | 'exams' | 'questions' | 'jobs' | 'newsletters' | 'materials';
 
@@ -239,20 +240,20 @@ export const AdminDashboardPage: React.FC = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 animate-fadeIn">
       {/* Banner & Welcome */}
       <div className="bg-gradient-to-r from-[#174330] via-[#205A40] to-[#2D7354] rounded-3xl p-6 sm:p-8 text-white shadow-xl relative overflow-hidden">
-        <div className="absolute right-0 top-0 bottom-0 w-1/3 opacity-10 pointer-events-none flex items-center justify-center">
+        <div className="absolute right-0 top-0 bottom-0 w-1/3 opacity-10 pointer-events-none flex items-center justify-center animate-hero-drift">
           <ShieldCheck className="w-96 h-96 -mr-20 text-white" />
         </div>
 
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-400 text-slate-900 text-xs font-black uppercase tracking-wider shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-amber-900 animate-pulse" />
-              ADMINISTRATIVE CONTROLLER &bull; DEMO MODE
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-100 text-xs font-bold uppercase tracking-wider border border-emerald-400/30 backdrop-blur-md animate-hero-sub">
+              <span className="w-2 h-2 rounded-full bg-emerald-400" />
+              ADMINISTRATIVE CONTROLLER &bull; ACTIVE SESSION
             </div>
-            <h1 className="text-2xl sm:text-3xl font-black tracking-tight">
+            <h1 className="text-2xl sm:text-3xl font-black tracking-tight animate-hero-title">
               Placement Examination Controller Dashboard
             </h1>
-            <p className="text-emerald-100/90 text-sm max-w-2xl leading-relaxed">
+            <p className="text-emerald-100/90 text-sm max-w-2xl leading-relaxed animate-hero-sub">
               Full administrative governance of students, CBT examinations, question banks,
               campus recruitment jobs, weekly newsletters, and academic preparation resources.
             </p>
@@ -306,7 +307,7 @@ export const AdminDashboardPage: React.FC = () => {
         <div className="space-y-8 animate-fadeIn">
           {/* 4 KPI Metric Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            <div className="bg-[#EBF7F0] border border-[#C6ECD4] rounded-2xl p-5 shadow-xs transition-transform hover:-translate-y-0.5">
+            <div className="bg-[#EBF7F0] border border-[#C6ECD4] rounded-2xl p-5 shadow-xs card-hover-lift animate-fade-up stagger-1">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-[#205A40] uppercase tracking-wider">Registered Demo Students</span>
                 <div className="w-10 h-10 rounded-xl bg-white/80 flex items-center justify-center text-[#205A40] shadow-xs">
@@ -314,13 +315,15 @@ export const AdminDashboardPage: React.FC = () => {
                 </div>
               </div>
               <div className="mt-3 flex items-baseline gap-2">
-                <span className="text-3xl font-black text-slate-900">{students.length}</span>
+                <span className="text-3xl font-black text-slate-900">
+                  <CountUp end={students.length} duration={800} />
+                </span>
                 <span className="text-xs font-semibold text-emerald-700">Enrolled (CSE-AI)</span>
               </div>
               <div className="mt-2 text-xs text-slate-600">Active evaluation cohort</div>
             </div>
 
-            <div className="bg-[#EFF6FF] border border-[#BFDBFE] rounded-2xl p-5 shadow-xs transition-transform hover:-translate-y-0.5">
+            <div className="bg-[#EFF6FF] border border-[#BFDBFE] rounded-2xl p-5 shadow-xs card-hover-lift animate-fade-up stagger-2">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-blue-700 uppercase tracking-wider">Aptitude Exam Catalog</span>
                 <div className="w-10 h-10 rounded-xl bg-white/80 flex items-center justify-center text-blue-700 shadow-xs">
@@ -328,13 +331,15 @@ export const AdminDashboardPage: React.FC = () => {
                 </div>
               </div>
               <div className="mt-3 flex items-baseline gap-2">
-                <span className="text-3xl font-black text-slate-900">{exams.length}</span>
+                <span className="text-3xl font-black text-slate-900">
+                  <CountUp end={exams.length} duration={1000} />
+                </span>
                 <span className="text-xs font-semibold text-blue-700">Total Exams</span>
               </div>
               <div className="mt-2 text-xs text-slate-600">Quant, Logic, Verbal, Tech</div>
             </div>
 
-            <div className="bg-[#FEF3C7] border border-[#FDE68A] rounded-2xl p-5 shadow-xs transition-transform hover:-translate-y-0.5">
+            <div className="bg-[#FEF3C7] border border-[#FDE68A] rounded-2xl p-5 shadow-xs card-hover-lift animate-fade-up stagger-3">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-amber-800 uppercase tracking-wider">Cohort Avg Score</span>
                 <div className="w-10 h-10 rounded-xl bg-white/80 flex items-center justify-center text-amber-800 shadow-xs">
@@ -342,13 +347,15 @@ export const AdminDashboardPage: React.FC = () => {
                 </div>
               </div>
               <div className="mt-3 flex items-baseline gap-2">
-                <span className="text-3xl font-black text-slate-900">{DEMO_ADMIN_STATS.avgBatchScore}%</span>
+                <span className="text-3xl font-black text-slate-900">
+                  <CountUp end={DEMO_ADMIN_STATS.avgBatchScore} suffix="%" duration={1200} />
+                </span>
                 <span className="text-xs font-semibold text-amber-800">Pass Rate: {DEMO_ADMIN_STATS.passRate}%</span>
               </div>
               <div className="mt-2 text-xs text-slate-600">Aggregated across all tests</div>
             </div>
 
-            <div className="bg-[#F5F3FF] border border-[#DDD6FE] rounded-2xl p-5 shadow-xs transition-transform hover:-translate-y-0.5">
+            <div className="bg-[#F5F3FF] border border-[#DDD6FE] rounded-2xl p-5 shadow-xs card-hover-lift animate-fade-up stagger-4">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-purple-700 uppercase tracking-wider">Dedicated Questions</span>
                 <div className="w-10 h-10 rounded-xl bg-white/80 flex items-center justify-center text-purple-700 shadow-xs">
@@ -356,10 +363,12 @@ export const AdminDashboardPage: React.FC = () => {
                 </div>
               </div>
               <div className="mt-3 flex items-baseline gap-2">
-                <span className="text-3xl font-black text-slate-900">400</span>
-                <span className="text-xs font-semibold text-purple-700">Unique MCQs</span>
+                <span className="text-3xl font-black text-slate-900">
+                  <CountUp end={400} duration={1200} />
+                </span>
+                <span className="text-xs font-semibold text-purple-700">MCQs Verified</span>
               </div>
-              <div className="mt-2 text-xs text-slate-600">20 per test &bull; 0 cycling</div>
+              <div className="mt-2 text-xs text-slate-600">Across 20 syllabus banks</div>
             </div>
           </div>
 

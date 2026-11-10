@@ -5,9 +5,9 @@
 @layer base {
   :root {
     --color-sahyadri-green: #205A40;
-    --color-sahyadri-gold: #A3542E;
-    --color-sahyadri-orange: #E86E2A;
-    --color-sahyadri-orange-dark: #9C3B00;
+    --color-sahyadri-green-dark: #174B36;
+    --color-sahyadri-bg: #F7F9F7;
+    --color-sahyadri-gold: #C59B27;
   }
 
   html {
@@ -17,26 +17,26 @@
 
   body {
     min-height: 100vh;
-    background-color: #F8FAFC;
-    color: #0F172A;
+    background-color: #F7F9F7;
+    color: #1E293B;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
 @layer utilities {
-  /* Asymmetric organic scoop curve for the Sahyadri login card */
-  .curve-scoop-tl {
-    border-top-left-radius: 56px;
-  }
-
-  /* Custom subtle drop shadows matching reference designs */
+  /* Subtle drop shadows for clean enterprise card styling */
   .shadow-soft {
-    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
   }
 
   .shadow-card-elevated {
-    box-shadow: 0 10px 30px -4px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(15, 23, 42, 0.03);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
   }
 
+  /* --- CINEMATIC MOTION SYSTEM --- */
+
+  /* Keyframe Animations */
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -48,7 +48,186 @@
     }
   }
 
+  @keyframes pageEnter {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes cinematicFadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes cinematicRevealLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes cinematicRevealRight {
+    from {
+      opacity: 0;
+      transform: translateX(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes cinematicZoomIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes heroGlowDrift {
+    0% {
+      transform: translate(0, 0) scale(1);
+    }
+    50% {
+      transform: translate(14px, -10px) scale(1.06);
+    }
+    100% {
+      transform: translate(-8px, 6px) scale(0.98);
+    }
+  }
+
+  @keyframes subtleFloat {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-4px);
+    }
+  }
+
+  @keyframes chartLineDraw {
+    from {
+      stroke-dashoffset: 1400;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  /* Animation Classes */
   .animate-fadeIn {
     animation: fadeIn 0.25s ease-out forwards;
+  }
+
+  .animate-page-enter {
+    animation: pageEnter 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-hero-title {
+    animation: cinematicRevealLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-hero-sub {
+    animation: cinematicFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s backwards;
+  }
+
+  .animate-hero-cta {
+    animation: cinematicFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.28s backwards;
+  }
+
+  .animate-hero-drift {
+    animation: heroGlowDrift 16s ease-in-out infinite alternate;
+  }
+
+  .animate-reveal-left {
+    animation: cinematicRevealLeft 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-reveal-right {
+    animation: cinematicRevealRight 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-fade-up {
+    animation: cinematicFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-zoom-in {
+    animation: cinematicZoomIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .animate-float {
+    animation: subtleFloat 4s ease-in-out infinite;
+  }
+
+  .animate-chart-line {
+    stroke-dasharray: 1400;
+    animation: chartLineDraw 1.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Stagger Delays */
+  .stagger-1 { animation-delay: 50ms; }
+  .stagger-2 { animation-delay: 100ms; }
+  .stagger-3 { animation-delay: 150ms; }
+  .stagger-4 { animation-delay: 200ms; }
+  .stagger-5 { animation-delay: 250ms; }
+  .stagger-6 { animation-delay: 300ms; }
+  .stagger-7 { animation-delay: 350ms; }
+  .stagger-8 { animation-delay: 400ms; }
+
+  /* Interactive Cinematic Card Hover Lift */
+  .card-hover-lift {
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s ease, border-color 0.2s ease;
+    will-change: transform, box-shadow;
+  }
+  .card-hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.08), 0 8px 12px -6px rgba(0, 0, 0, 0.04);
+  }
+
+  /* Interactive Image Zoom on Hover */
+  .hover-zoom-container {
+    overflow: hidden;
+  }
+  .hover-zoom-container img {
+    transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .hover-zoom-container:hover img {
+    transform: scale(1.05);
+  }
+
+  /* Smooth Nav Underline & Pill Transitions */
+  .nav-pill-transition {
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+}
+
+/* Accessibility: Respect Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

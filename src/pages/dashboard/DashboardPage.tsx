@@ -24,6 +24,8 @@ import { InteractiveTestChart } from '../../components/dashboard/InteractiveTest
 import { InteractiveSkillsChart } from '../../components/dashboard/InteractiveSkillsChart';
 import { CalendarWidget } from '../../components/dashboard/CalendarWidget';
 import { Button } from '../../components/common/Button';
+import { CountUp } from '../../components/common/CountUp';
+import { ScrollReveal } from '../../components/common/ScrollReveal';
 
 export const DashboardPage: React.FC = () => {
   const { user, profile, isConfigured } = useAuth();
@@ -160,24 +162,17 @@ export const DashboardPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Status / Data Mode Badge & Quick Actions */}
+        {/* Status / Session Badge & Quick Actions */}
         <div className="flex flex-col sm:flex-row md:flex-col items-start md:items-end gap-2.5">
-          {demoStudent ? (
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-amber-400 text-slate-900 border border-amber-500/30 shadow-xs">
-              <span className="w-2 h-2 rounded-full bg-amber-950 animate-pulse" />
-              DEMO ACTIVE &bull; {student.usn}
-            </div>
-          ) : isRealAuth ? (
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-[#205A40] border border-emerald-200">
-              <span className="w-2 h-2 rounded-full bg-[#205A40] animate-pulse" />
-              Verified Student Session
-            </div>
-          ) : null}
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#EBF3EF] text-[#205A40] border border-[#205A40]/20 shadow-2xs">
+            <span className="w-2 h-2 rounded-full bg-[#205A40]" />
+            ACADEMIC YEAR 2024–28 &bull; {student.usn}
+          </div>
 
           <div className="flex items-center gap-3 pt-1">
             <Link
               to="/test-board"
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-white bg-[#205A40] hover:bg-[#17422E] px-4 py-2 rounded-full transition-colors shadow-xs"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-white bg-[#205A40] hover:bg-[#174B36] px-4 py-2 rounded-xl transition-colors shadow-xs"
             >
               <span>Launch Test</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -199,7 +194,7 @@ export const DashboardPage: React.FC = () => {
           {/* Section B & C: Refined 4 KPI Metric Cards with Circular Attendance Indicator */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {/* 1. Rank Card */}
-            <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-100 shadow-xs hover:border-blue-200 hover:shadow-sm transition-all flex flex-col justify-between h-32">
+            <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs card-hover-lift flex flex-col justify-between h-32 animate-fade-up stagger-1">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Batch Rank</span>
                 <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center shadow-2xs">
@@ -208,14 +203,14 @@ export const DashboardPage: React.FC = () => {
               </div>
               <div>
                 <div className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-                  #{kpiData.rank}
+                  <CountUp end={kpiData.rank} prefix="#" duration={1000} />
                 </div>
                 <p className="text-[11px] text-slate-400 font-medium mt-0.5">Cohort Standing</p>
               </div>
             </div>
 
             {/* 2. Avg Score % Card */}
-            <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-100 shadow-xs hover:border-emerald-200 hover:shadow-sm transition-all flex flex-col justify-between h-32">
+            <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs card-hover-lift flex flex-col justify-between h-32 animate-fade-up stagger-2">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Avg Score</span>
                 <div className="w-8 h-8 rounded-xl bg-emerald-50 text-[#205A40] flex items-center justify-center shadow-2xs">
@@ -224,14 +219,14 @@ export const DashboardPage: React.FC = () => {
               </div>
               <div>
                 <div className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-                  {kpiData.avgScorePercentage}%
+                  <CountUp end={kpiData.avgScorePercentage} suffix="%" duration={1200} />
                 </div>
                 <p className="text-[11px] text-emerald-600 font-semibold mt-0.5">Evaluation Aggregate</p>
               </div>
             </div>
 
             {/* 3. Total Tests Card */}
-            <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-100 shadow-xs hover:border-amber-200 hover:shadow-sm transition-all flex flex-col justify-between h-32">
+            <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs card-hover-lift flex flex-col justify-between h-32 animate-fade-up stagger-3">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Evaluations</span>
                 <div className="w-8 h-8 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center shadow-2xs">
@@ -240,14 +235,14 @@ export const DashboardPage: React.FC = () => {
               </div>
               <div>
                 <div className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-                  {kpiData.totalTests}
+                  <CountUp end={kpiData.totalTests} duration={1000} />
                 </div>
                 <p className="text-[11px] text-slate-400 font-medium mt-0.5">Tests Completed</p>
               </div>
             </div>
 
             {/* 4. % Attendance Card with Circular Ring Progress Indicator */}
-            <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-100 shadow-xs hover:border-emerald-200 hover:shadow-sm transition-all flex flex-col justify-between h-32">
+            <div className="bg-white p-4 sm:p-5 rounded-2xl border border-slate-200/80 shadow-xs card-hover-lift flex flex-col justify-between h-32 animate-fade-up stagger-4">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Attendance</span>
                 <span className="text-[10px] font-bold text-[#205A40] bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">
@@ -257,7 +252,7 @@ export const DashboardPage: React.FC = () => {
               <div className="flex items-center justify-between gap-3 pt-1">
                 <div>
                   <div className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-                    {kpiData.attendancePercentage}%
+                    <CountUp end={kpiData.attendancePercentage} suffix="%" duration={1200} />
                   </div>
                   <p className="text-[11px] text-slate-400 font-medium mt-0.5">Session Verified</p>
                 </div>
@@ -280,6 +275,7 @@ export const DashboardPage: React.FC = () => {
                       strokeWidth="3.4"
                       strokeDasharray={`${Math.min(100, Math.max(0, kpiData.attendancePercentage))}, 100`}
                       strokeLinecap="round"
+                      style={{ transition: 'stroke-dasharray 1.2s cubic-bezier(0.16, 1, 0.3, 1)' }}
                     />
                   </svg>
                   <div className="absolute inset-0 flex items-center justify-center">
@@ -291,89 +287,93 @@ export const DashboardPage: React.FC = () => {
           </div>
 
           {/* Section D1: Your Tests Overview Line Chart Card (Refined Sahyadri Green Spline Area) */}
-          <div className="bg-white p-6 sm:p-7 rounded-3xl shadow-xs border border-slate-100 space-y-4">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-              <div>
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-xl bg-emerald-50 text-[#205A40] flex items-center justify-center font-bold">
-                    <TrendingUp className="w-4 h-4" />
+          <ScrollReveal direction="up">
+            <div className="bg-white p-6 sm:p-7 rounded-3xl shadow-xs border border-slate-200/80 space-y-4 card-hover-lift">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-xl bg-emerald-50 text-[#205A40] flex items-center justify-center font-bold">
+                      <TrendingUp className="w-4 h-4" />
+                    </div>
+                    <h2 className="text-lg font-black text-slate-900 animate-reveal-left">Aptitude Assessment Trajectory</h2>
                   </div>
-                  <h2 className="text-lg font-black text-slate-900">Aptitude Assessment Trajectory</h2>
+                  <p className="text-xs text-slate-500 mt-0.5">
+                    Performance trajectory compared against cohort topper benchmark
+                  </p>
                 </div>
-                <p className="text-xs text-slate-500 mt-0.5">
-                  Performance trajectory compared against cohort topper benchmark
-                </p>
+
+                {/* Chart Legend */}
+                <div className="flex items-center gap-3 text-xs font-bold text-slate-700 bg-slate-50 px-3.5 py-1.5 rounded-full border border-slate-200/80">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#10B981] inline-block shadow-xs" />
+                    <span className="text-slate-800">Your Score (%)</span>
+                  </div>
+                  <span className="text-slate-300">&bull;</span>
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#F59E0B] inline-block shadow-xs" />
+                    <span className="text-slate-600">Cohort Topper (%)</span>
+                  </div>
+                </div>
               </div>
 
-              {/* Chart Legend */}
-              <div className="flex items-center gap-3 text-xs font-bold text-slate-700 bg-slate-50 px-3.5 py-1.5 rounded-full border border-slate-200/80">
-                <div className="flex items-center gap-1.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#10B981] inline-block shadow-xs" />
-                  <span className="text-slate-800">Your Score (%)</span>
-                </div>
-                <span className="text-slate-300">&bull;</span>
-                <div className="flex items-center gap-1.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#F59E0B] inline-block shadow-xs" />
-                  <span className="text-slate-600">Cohort Topper (%)</span>
-                </div>
+              {/* Chart Body */}
+              <div className="p-2 sm:p-4 rounded-2xl bg-slate-50/50 border border-slate-100">
+                <InteractiveTestChart data={testsData} />
               </div>
             </div>
-
-            {/* Chart Body */}
-            <div className="p-2 sm:p-4 rounded-2xl bg-slate-50/50 border border-slate-100">
-              <InteractiveTestChart data={testsData} />
-            </div>
-          </div>
+          </ScrollReveal>
 
           {/* Section D2: Your Skills Summary Line Chart Card (Emerald Category Breakdown) */}
-          <div className="bg-white p-6 sm:p-7 rounded-3xl shadow-xs border border-slate-100 space-y-4">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-              <div>
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-xl bg-emerald-50 text-[#205A40] flex items-center justify-center font-bold">
-                    <Target className="w-4 h-4" />
+          <ScrollReveal direction="up">
+            <div className="bg-white p-6 sm:p-7 rounded-3xl shadow-xs border border-slate-200/80 space-y-4 card-hover-lift">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-xl bg-emerald-50 text-[#205A40] flex items-center justify-center font-bold">
+                      <Target className="w-4 h-4" />
+                    </div>
+                    <h2 className="text-lg font-black text-slate-900 animate-reveal-left">Competency Skills Summary</h2>
                   </div>
-                  <h2 className="text-lg font-black text-slate-900">Competency Skills Summary</h2>
-                </div>
-                <p className="text-xs text-slate-500 mt-0.5">Domain category breakdown & score progression</p>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <div className="hidden sm:flex items-center gap-1.5 text-xs font-bold text-slate-700 bg-slate-50 px-3 py-1.5 rounded-full border border-slate-200/80">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#10B981] inline-block shadow-xs" />
-                  <span>Category Score</span>
+                  <p className="text-xs text-slate-500 mt-0.5">Domain category breakdown & score progression</p>
                 </div>
 
-                {/* Filter Dropdown */}
-                <select
-                  value={selectedSkillCategory}
-                  onChange={(e) =>
-                    setSelectedSkillCategory(
-                      e.target.value as 'any' | 'quantitative' | 'logical' | 'verbal' | 'technical'
-                    )
-                  }
-                  className="text-xs font-semibold bg-white border border-slate-200 rounded-xl px-3 py-1.5 text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-400 shadow-2xs cursor-pointer hover:border-slate-300"
-                >
-                  <option value="any">Composite (All Topics)</option>
-                  <option value="quantitative">Quantitative Aptitude</option>
-                  <option value="logical">Logical Reasoning</option>
-                  <option value="verbal">Verbal Ability</option>
-                  <option value="technical">Core Technical</option>
-                </select>
+                <div className="flex items-center gap-3">
+                  <div className="hidden sm:flex items-center gap-1.5 text-xs font-bold text-slate-700 bg-slate-50 px-3 py-1.5 rounded-full border border-slate-200/80">
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#10B981] inline-block shadow-xs" />
+                    <span>Category Score</span>
+                  </div>
+
+                  {/* Filter Dropdown */}
+                  <select
+                    value={selectedSkillCategory}
+                    onChange={(e) =>
+                      setSelectedSkillCategory(
+                        e.target.value as 'any' | 'quantitative' | 'logical' | 'verbal' | 'technical'
+                      )
+                    }
+                    className="text-xs font-semibold bg-white border border-slate-200 rounded-xl px-3 py-1.5 text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-400 shadow-2xs cursor-pointer hover:border-slate-300"
+                  >
+                    <option value="any">Composite (All Topics)</option>
+                    <option value="quantitative">Quantitative Aptitude</option>
+                    <option value="logical">Logical Reasoning</option>
+                    <option value="verbal">Verbal Ability</option>
+                    <option value="technical">Core Technical</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Skills Chart Body */}
+              <div className="p-2 sm:p-4 rounded-2xl bg-slate-50/50 border border-slate-100">
+                <InteractiveSkillsChart data={skillsData} />
               </div>
             </div>
-
-            {/* Skills Chart Body */}
-            <div className="p-2 sm:p-4 rounded-2xl bg-slate-50/50 border border-slate-100">
-              <InteractiveSkillsChart data={skillsData} />
-            </div>
-          </div>
+          </ScrollReveal>
 
           {/* Section G: Recent Assessment Activity */}
-          <div className="bg-white p-6 rounded-3xl shadow-xs border border-slate-100 space-y-4">
+          <div className="bg-white p-6 rounded-3xl shadow-xs border border-slate-200/80 space-y-4 card-hover-lift">
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="text-base font-bold text-slate-900">Recent Assessment Activity</h3>
+                <h3 className="text-base font-bold text-slate-900 animate-reveal-left">Recent Assessment Activity</h3>
                 <p className="text-xs text-slate-500">Completed evaluation attempts and verified scorecards</p>
               </div>
               <div className="flex items-center gap-2">
@@ -426,10 +426,10 @@ export const DashboardPage: React.FC = () => {
         {/* Right Column (~30-35% on desktop) */}
         <div className="lg:col-span-4 space-y-6">
           {/* Section C: Student Profile Card */}
-          <div className="bg-white rounded-3xl overflow-hidden shadow-xs border border-slate-100">
+          <div className="bg-white rounded-3xl overflow-hidden shadow-xs border border-slate-200/80 card-hover-lift">
             {/* 3-Panel Doodle Sketch Banner */}
             <div
-              className="h-28 w-full bg-cover bg-center relative"
+              className="h-28 w-full bg-cover bg-center relative transition-transform duration-700 hover:scale-105"
               style={{ backgroundImage: `url(${BRAND_ASSETS.profileDoodleBanner})` }}
             >
               <div className="absolute inset-0 bg-slate-900/10" />

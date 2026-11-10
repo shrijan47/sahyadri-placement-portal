@@ -150,7 +150,7 @@ export const InteractiveTestChart: React.FC<InteractiveTestChartProps> = ({ data
           className="opacity-90"
         />
 
-        {/* Student Trajectory Curve (Sahyadri Emerald Green) */}
+        {/* Student Trajectory Curve (Sahyadri Emerald Green) with Cinematic Draw Animation */}
         <path
           d={studentCurvePath}
           fill="none"
@@ -159,6 +159,7 @@ export const InteractiveTestChart: React.FC<InteractiveTestChartProps> = ({ data
           strokeLinecap="round"
           strokeLinejoin="round"
           filter="url(#softChartGlow)"
+          className="animate-chart-line"
         />
 
         {/* X-axis test labels */}

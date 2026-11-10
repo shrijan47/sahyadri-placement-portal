@@ -33,7 +33,7 @@ export const SegmentedToggle = <T extends string>({
               px-3.5 py-1 text-xs font-semibold rounded-full transition-all duration-200 select-none
               ${
                 isActive
-                  ? 'bg-[#0062D2] text-white shadow-sm'
+                  ? 'bg-[#205A40] text-white shadow-sm'
                   : 'bg-transparent text-slate-600 hover:text-slate-900'
               }
             `}
